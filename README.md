@@ -18,8 +18,22 @@ Java GraalVM: 24
 
 ## Install GraalVM JDK 24
 
+Install GDB and GDBServer
+
+```bash
+sudo apt-get update
+sudo apt-get install gdb -y
+sudo apt install gdbserver -y
+```
+
 [Install GraalVM JDK 24](https://www.graalvm.org/latest/getting-started/) <br>
 Set ``GRAALVM_HOME`` as environment path.
+
+Or use sdkman
+
+```bash
+sdk install java 24.0.2-graal
+```
 
 ## Clone this repository:
 
