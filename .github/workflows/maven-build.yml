@@ -32,23 +32,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up JDK 24
-        uses: actions/setup-java@v4
-        with:
-          java-version: '24'
-          distribution: 'temurin'
-          cache: maven
-
-      - name: Clean Build Test In Non-Native Mode with JDK and Maven
-        run: |
-          chmod +x mvnw
-          ./mvnw clean package --file pom.xml --batch-mode --update-snapshots
-
-      - name: Set up GraalVM JDK 24
+      - name: Set up JDK 25-early-access
         uses: graalvm/setup-graalvm@v1
         with:
-          java-version: '24'
+          java-version: '25-ea'
           distribution: 'graalvm'
+          cache: maven
 
       - name: Check JVM and GraalVM Version
         run: |
@@ -56,6 +45,12 @@ jobs:
           echo "JAVA_HOME: $JAVA_HOME"
           java --version
           native-image --version
+          mvn -v
+
+      - name: Clean Build Test In Non-Native Mode with JDK and Maven
+        run: |
+          chmod +x mvnw
+          ./mvnw clean package --file pom.xml --batch-mode --update-snapshots
 
       - name: Run Tests In Native Mode with GraalVM and Maven
         run: ./mvnw clean -Pnative test --file pom.xml --batch-mode --update-snapshots

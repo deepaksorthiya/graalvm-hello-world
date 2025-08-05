@@ -13,10 +13,11 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>24</java.version>
+        <java.version>25</java.version>
         <maven.compiler.plugin>3.14.0</maven.compiler.plugin>
         <native.maven.plugin.version>0.11.0</native.maven.plugin.version>
         <junit-bom.version>5.13.4</junit-bom.version>
+        <maven.jar.plugin>3.4.2</maven.jar.plugin>
     </properties>
 
     <dependencyManagement>
@@ -50,6 +51,19 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven.jar.plugin}</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.example.MainApp</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -73,9 +87,9 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <mainClass>com.example.App</mainClass>
+                            <mainClass>com.example.MainApp</mainClass>
                             <buildArgs>
-                                -O0,-g,--verbose,-H:+SourceLevelDebug,-H:-DeleteLocalSymbols,-H:+ReportExceptionStackTraces,-H:+UnlockExperimentalVMOptions
+                                -O0,-g,--verbose,-H:+SourceLevelDebug,-H:-DeleteLocalSymbols,-H:+ReportExceptionStackTraces,-H:+UnlockExperimentalVMOptions,-H:+JDWP
                             </buildArgs>
                         </configuration>
                     </plugin>
