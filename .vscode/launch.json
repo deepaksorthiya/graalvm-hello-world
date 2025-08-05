@@ -6,9 +6,17 @@
   "configurations": [
     {
       "type": "java",
-      "name": "Launch Java Program",
+      "name": "Attach",
+      "request": "attach",
+      "hostName": "localhost",
+      "port": "8000"
+    },
+    {
+      "type": "java",
+      "name": "MainApp",
       "request": "launch",
-      "mainClass": "com.example.App"
+      "mainClass": "com.example.MainApp",
+      "projectName": "graalvm-hello-world"
     },
     {
       "type": "nativeimage",
