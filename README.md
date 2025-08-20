@@ -51,7 +51,7 @@ native-image -O0 -g --verbose -H:+SourceLevelDebug -H:-DeleteLocalSymbols -H:+Re
 ## Run Project:
 
 ```bash
-./target/spring-boot-graalvm-native
+./target/graalvm-hello-world
 ```
 
 ## Debugging
