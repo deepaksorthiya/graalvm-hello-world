@@ -18,13 +18,13 @@ Java GraalVM: 25
 
 ## Install GraalVM JDK 25
 
-[Install GraalVM JDK 24](https://www.graalvm.org/latest/getting-started/) <br>
+[Install GraalVM JDK 25](https://www.graalvm.org/latest/getting-started/) <br>
 Set ``GRAALVM_HOME`` as environment path.
 
 Or use sdkman
 
 ```bash
-sdk install java 25.ea.31-graal
+sdk install java 25.0.2-graal
 ```
 
 ## Clone this repository:
