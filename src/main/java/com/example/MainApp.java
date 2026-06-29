@@ -1,26 +1,40 @@
 package com.example;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Map;
 
 /**
  * @author Deepak
  */
 public class MainApp {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(MainApp.class);
+
     public static void main(String[] args) {
         int i = 0;
-        System.out.println("Hello World!");
-        System.out.println(i);
+        LOGGER.info("Hello World!");
+        LOGGER.info("Value of i: {}", i);
 
         Calculator calculator = new Calculator();
 
         int sum = calculator.sum(1, 2);
         int sub = calculator.sub(1, 2);
 
-        System.out.println(sum);
-        System.out.println(sub);
+        LOGGER.info("Sum: {}", sum);
+        LOGGER.info("Subtraction: {}", sub);
 
         Map<Integer, String> map = calculator.getMap();
-        System.out.println(map);
+        LOGGER.info("Map: {}", map);
+
+        try {
+            Class<?> foo = Class.forName("com.example.Foo");
+            Foo fooInstance = (Foo) foo.newInstance();
+            fooInstance.print();
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+            LOGGER.error("Error occurred while creating Foo instance", e);
+        }
 
     }
 }
