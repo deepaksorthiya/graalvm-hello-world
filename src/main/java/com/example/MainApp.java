@@ -36,5 +36,17 @@ public class MainApp {
             LOGGER.error("Error occurred while creating Foo instance", e);
         }
 
+        // serialization and deserialization test
+        // Create an instance of the Person class
+        Person person = new Person("John Doe", 30);
+
+        // Serialize the Person object to JSON
+        String jsonString = JsonUtil.serialize(person);
+        System.out.println("Serialized JSON: " + jsonString);
+
+        // Deserialize the JSON back to a Person object
+        Person deserializedPerson = JsonUtil.deserialize(jsonString, Person.class);
+        System.out.println("Deserialized Person: " + deserializedPerson.name() + ", Age: " + deserializedPerson.age());
+
     }
 }
