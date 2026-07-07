@@ -20,6 +20,7 @@
         <maven.jar.plugin>3.5.0</maven.jar.plugin>
         <logback.version>1.5.37</logback.version>
         <jackson-bom.version>3.2.0</jackson-bom.version>
+        <assertj-bom.version>3.27.7</assertj-bom.version>
     </properties>
 
     <dependencyManagement>
@@ -38,6 +39,13 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-bom</artifactId>
+                <version>${assertj-bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -55,6 +63,11 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
