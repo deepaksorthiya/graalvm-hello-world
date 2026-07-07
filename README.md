@@ -54,6 +54,12 @@ native-image -O0 -g --verbose -H:+SourceLevelDebug -H:-DeleteLocalSymbols -H:+Re
 ./target/graalvm-hello-world
 ```
 
+## Run Tests in Native Mode:
+
+```bash
+.\mvnw clean -Pnative test
+```
+
 ## Debugging
 
 [Debug Docs](https://www.graalvm.org/jdk25/reference-manual/native-image/debugging-and-diagnostics/JDWP/)
